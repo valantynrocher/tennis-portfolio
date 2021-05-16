@@ -59,6 +59,7 @@ function App() {
           <Fab
             style={{
               backgroundColor: theme.palette.info.main,
+              marginLeft: theme.spacing(2),
             }}
             size="large"
             onClick={() => setQuizOpen(true)}
@@ -72,6 +73,7 @@ function App() {
           <Fab
             style={{
               backgroundColor: theme.palette.info.main,
+              marginLeft: theme.spacing(2),
             }}
             size="large"
             onClick={() => setDrawerOpen(true)}
