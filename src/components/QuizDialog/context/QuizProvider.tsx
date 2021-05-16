@@ -3,11 +3,6 @@ import { AppContext } from "../../../context/AppContext";
 import data from "../data";
 import { QuizContext } from "./QuizContext";
 
-const answerReducer = (acc: { [key: number]: string }, value: any) => {
-  acc[value] = "";
-  return acc;
-};
-
 const QuizProvider = (props: { children: React.ReactNode }) => {
   const { themeName } = useContext(AppContext);
   const questions = data[themeName];

@@ -3,6 +3,7 @@ import useTheme from "@material-ui/core/styles/useTheme";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import React, { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
+import QuizProvider from "./context/QuizProvider";
 import QuizContent from "./QuizContent";
 import QuizTitle from "./QuizTitle";
 import { useStyles } from "./styles";
@@ -24,8 +25,10 @@ const QuizDialog = () => {
         paper: classes.paper,
       }}
     >
-      <QuizTitle />
-      <QuizContent />
+      <QuizProvider>
+        <QuizTitle />
+        <QuizContent />
+      </QuizProvider>
     </Dialog>
   );
 };

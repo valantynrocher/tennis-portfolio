@@ -4,11 +4,14 @@ export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       position: "relative",
-      height: 200,
+      height: 125,
       [theme.breakpoints.down("xs")]: {
-        width: "100% !important", // Overrides inline-style
+        width: "100%",
         height: 100,
       },
+      width: "100%",
+      margin: theme.spacing(2, 0),
+      color: theme.palette.info.contrastText,
       "&:hover, &$focusVisible": {
         zIndex: 1,
         "& $backdrop": {
@@ -16,7 +19,6 @@ export const useStyles = makeStyles((theme: Theme) =>
         },
       },
     },
-    focusVisible: {},
     content: {
       position: "absolute",
       left: 0,
@@ -25,9 +27,11 @@ export const useStyles = makeStyles((theme: Theme) =>
       bottom: 0,
       padding: theme.spacing(2),
       display: "flex",
-      alignItems: "flex-start",
-      justifyContent: "center",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "space-between",
       color: theme.palette.common.white,
+      zIndex: 3,
     },
     backdrop: {
       position: "absolute",
@@ -36,8 +40,9 @@ export const useStyles = makeStyles((theme: Theme) =>
       top: 0,
       bottom: 0,
       backgroundColor: theme.palette.common.black,
-      opacity: 0.4,
+      opacity: 0.45,
       transition: theme.transitions.create("opacity"),
+      zIndex: 2,
     },
     title: {
       position: "relative",
@@ -49,6 +54,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       position: "absolute",
       top: "50%",
       left: 0,
+      zIndex: 1,
     },
     t: {
       height: 20,
@@ -57,6 +63,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       position: "absolute",
       top: "50%",
       left: "50%",
+      zIndex: 1,
     },
   })
 );

@@ -1,19 +1,15 @@
 import { useTheme } from "@material-ui/core";
-import Drawer from "@material-ui/core/Drawer";
 import Fab from "@material-ui/core/Fab";
 import ColorLensIcon from "@material-ui/icons/ColorLens";
 import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
 import React, { useContext, useEffect, useState } from "react";
 import QuizDialog from "./components/QuizDialog";
-import QuizProvider from "./components/QuizDialog/context/QuizProvider";
-import ThemeOptionButton from "./components/ThemeOptionButton";
+import ThemeDrawer from "./components/ThemeDrawer";
 import { AppContext } from "./context/AppContext";
 import useWindowDimensions from "./hooks/useWindowDimensions";
-import { themeMap } from "./themes";
 
 function App() {
-  const { themeName, drawerOpen, setDrawerOpen, setQuizOpen } =
-    useContext(AppContext);
+  const { themeName, setDrawerOpen, setQuizOpen } = useContext(AppContext);
   const theme = useTheme();
   const { height, width } = useWindowDimensions();
   const [style, setStyle] = useState({
@@ -50,26 +46,8 @@ function App() {
 
   return (
     <React.Fragment>
-      <Drawer
-        anchor="right"
-        open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
-      >
-        <div
-          style={{
-            width: 250,
-          }}
-          onClick={() => setDrawerOpen(false)}
-          role="presentation"
-        >
-          {Object.keys(themeMap).map((themeName: any) => (
-            <ThemeOptionButton key={themeName} name={themeName} />
-          ))}
-        </div>
-      </Drawer>
-      <QuizProvider>
-        <QuizDialog />
-      </QuizProvider>
+      <ThemeDrawer />
+      <QuizDialog />
       <div style={style}>
         <div
           style={{
