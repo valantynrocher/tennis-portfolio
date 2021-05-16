@@ -1,16 +1,19 @@
 import { useTheme } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
 import Drawer from "@material-ui/core/Drawer";
 import Fab from "@material-ui/core/Fab";
 import ColorLensIcon from "@material-ui/icons/ColorLens";
+import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
 import React, { useContext, useEffect, useState } from "react";
+import QuizDialog from "./components/QuizDialog";
+import QuizProvider from "./components/QuizDialog/context/QuizProvider";
 import ThemeOptionButton from "./components/ThemeOptionButton";
+import { AppContext } from "./context/AppContext";
 import useWindowDimensions from "./hooks/useWindowDimensions";
 import { themeMap } from "./themes";
-import { ThemeContext } from "./themes/ThemeContext";
 
 function App() {
-  const { themeName } = useContext(ThemeContext);
+  const { themeName, drawerOpen, setDrawerOpen, setQuizOpen } =
+    useContext(AppContext);
   const theme = useTheme();
   const { height, width } = useWindowDimensions();
   const [style, setStyle] = useState({
@@ -21,7 +24,6 @@ function App() {
     justifyContent: "center",
     alignItems: "center",
   });
-  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     if (themeName === "London") {
@@ -48,12 +50,16 @@ function App() {
 
   return (
     <React.Fragment>
-      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
+      <Drawer
+        anchor="right"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      >
         <div
           style={{
             width: 250,
           }}
-          onClick={() => setOpen(false)}
+          onClick={() => setDrawerOpen(false)}
           role="presentation"
         >
           {Object.keys(themeMap).map((themeName: any) => (
@@ -61,23 +67,45 @@ function App() {
           ))}
         </div>
       </Drawer>
+      <QuizProvider>
+        <QuizDialog />
+      </QuizProvider>
       <div style={style}>
-        <Fab
+        <div
           style={{
-            backgroundColor: theme.palette.info.main,
             position: "absolute",
             top: theme.spacing(2),
             right: theme.spacing(2),
           }}
-          size="large"
-          onClick={() => setOpen(true)}
         >
-          <ColorLensIcon
+          <Fab
             style={{
-              color: theme.palette.info.contrastText,
+              backgroundColor: theme.palette.info.main,
             }}
-          />
-        </Fab>
+            size="large"
+            onClick={() => setQuizOpen(true)}
+          >
+            <SportsEsportsIcon
+              style={{
+                color: theme.palette.info.contrastText,
+              }}
+            />
+          </Fab>
+          <Fab
+            style={{
+              backgroundColor: theme.palette.info.main,
+            }}
+            size="large"
+            onClick={() => setDrawerOpen(true)}
+          >
+            <ColorLensIcon
+              style={{
+                color: theme.palette.info.contrastText,
+              }}
+            />
+          </Fab>
+        </div>
+
         <div
           style={{
             margin: theme.spacing(5, 0),

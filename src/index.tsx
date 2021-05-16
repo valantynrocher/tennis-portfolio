@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import ThemeProvider from "./themes/ThemeProvider";
+import AppProvider from "./context/AppProvider";
 
 ReactDOM.render(
-  <ThemeProvider>
+  <AppProvider>
     <App />
-  </ThemeProvider>,
+  </AppProvider>,
   document.getElementById("root")
 );

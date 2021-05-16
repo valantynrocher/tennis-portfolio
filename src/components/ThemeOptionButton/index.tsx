@@ -4,13 +4,13 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 import { ThemeOptionButtonProps } from "./props";
 import { useStyles } from "./styles";
 import { getThemeByName } from "../../themes";
-import { ThemeContext } from "../../themes/ThemeContext";
+import { AppContext } from "../../context/AppContext";
 import Typography from "@material-ui/core/Typography";
 
 const ThemeOptionButton = (props: ThemeOptionButtonProps) => {
   const { name } = props;
   const classes = useStyles();
-  const { setThemeName } = useContext(ThemeContext);
+  const { setThemeName } = useContext(AppContext);
   const currentTheme = getThemeByName(name);
   const { primary, secondary } = currentTheme.palette;
 
