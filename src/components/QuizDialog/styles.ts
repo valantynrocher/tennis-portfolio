@@ -6,7 +6,7 @@ export const useStyles = makeStyles(
       paper: {
         backgroundColor: theme.palette.info.main,
         color: theme.palette.common.white,
-        minWidth: 500,
+        minWidth: 700,
         minHeight: 500,
       },
     }),
