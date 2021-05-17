@@ -1,4 +1,4 @@
-export interface ScoreItemProps {
+export interface QuestionSummaryProps {
   isCorrect: boolean;
   question: string;
   answer: string;
