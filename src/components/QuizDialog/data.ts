@@ -22,7 +22,7 @@ const ParisQuestions: { [key: number]: QuizQuestion } = {
     answer: "Vrai",
   },
   3: {
-    text: "Quel joueur détient le plus grand nombre de victoire ?",
+    text: "Quel joueur détient le plus grand nombre de victoire (12) ?",
     choices: ["Roger Federer", "Rafael Nadal", "Pete Sampras", "Moi-même"],
     answer: "Rafael Nadal",
   },
@@ -100,7 +100,7 @@ const LondonQuestions: { [key: number]: QuizQuestion } = {
     answer: "Blanc",
   },
   3: {
-    text: "Quel joueur détient le plus grand nombre de victoire ?",
+    text: "Quel joueur détient le plus grand nombre de victoire (8) ?",
     choices: ["Moi-même", "Novak Djokovic", "Roger Federer", "Björn Borg"],
     answer: "Roger Federer",
   },
@@ -120,7 +120,7 @@ const LondonQuestions: { [key: number]: QuizQuestion } = {
     answer: "Vrai",
   },
   6: {
-    text: "Quel joueuse détient le plus grand nombre de victoire ?",
+    text: "Quel joueuse détient le plus grand nombre de victoire (9) ?",
     choices: [
       "Steffi Graf",
       "Florence Foresti",
@@ -178,7 +178,7 @@ const MelbourneQuestions: { [key: number]: QuizQuestion } = {
     answer: "Vrai",
   },
   3: {
-    text: "Quel joueur détient le plus grand nombre de victoire ?",
+    text: "Quel joueur détient le plus grand nombre de victoire (9) ?",
     choices: ["Novak Djokovic", "Roger Federer", "Moi-même", "Björn Borg"],
     answer: "Novak Djokovic",
   },
@@ -218,7 +218,7 @@ const MelbourneQuestions: { [key: number]: QuizQuestion } = {
     answer: "Vrai",
   },
   10: {
-    text: "Quelle joueuse détient le plus grand nombre de victoire ?",
+    text: "Quelle joueuse détient le plus grand nombre de victoire (7) ?",
     choices: [
       "La Reine d'Angleterre",
       "Maria Navratilova",
@@ -229,13 +229,86 @@ const MelbourneQuestions: { [key: number]: QuizQuestion } = {
   },
 };
 
+const NewYorkQuestions: { [key: number]: QuizQuestion } = {
+  1: {
+    text: "L'US Open est le premier tournoi du Grand Chelem à avoir instauré la parité dans les récompenses ?",
+    choices: ["Vrai", "Faux"],
+    answer: "Vrai",
+  },
+  2: {
+    text: "Quel joueur américain donne son nom au court central ?",
+    choices: ["Pete Sampras", "Joe Exotic", "Artur Ashe", "John Isner"],
+    answer: "Artur Ashe",
+  },
+  3: {
+    text: "Quel joueur détient le plus grand nombre de victoire (5) ?",
+    choices: [
+      "Pete Sampras",
+      "Roger Federer",
+      "Jimmy Connors",
+      "Ils sont à égalité",
+    ],
+    answer: "Ils sont à égalité",
+  },
+  4: {
+    text: "Le court central Artur Ashe est le plus grand du monde, il accueille",
+    choices: [
+      "23 000 spectateurs",
+      "54 367 spectateurs",
+      "Ce court n'existe pas",
+      "12 387 spectateurs",
+    ],
+    answer: "22 500 spectateurs",
+  },
+  5: {
+    text: "À quelle période de l'année se joue le tournoi ?",
+    choices: [
+      "Pendant Thanksgiving",
+      "Il se termine toujours à Halloween",
+      "À la fin de l'été",
+      "En mai",
+    ],
+    answer: "À la fin de l'été",
+  },
+  6: {
+    text: "Dans quel quartier de New York se déroule l'US Open ?",
+    choices: [
+      "Central Park, à Manhattan",
+      "Flushing Meadows, dans le Queens",
+      "Prospect Park, à Brooklyn",
+      "Van Cortlandt Park, dans le Bronx",
+    ],
+    answer: "Flushing Meadows, dans le Queens",
+  },
+  7: {
+    text: "Sur quelle surface se joue le tournoi ?",
+    choices: ["Gazon", "Terre battue", "Bitume", "Dur"],
+    answer: "Dur",
+  },
+  8: {
+    text: "L'US Open est le dernier tournoi du Grand Chelem de l'année",
+    choices: ["Vrai", "Faux"],
+    answer: "Vrai",
+  },
+  9: {
+    text: "La France est le pays le plus titré sur le tournoi ?",
+    choices: ["Vrai", "Faux"],
+    answer: "Faux",
+  },
+  10: {
+    text: "Roger Federer a gagné tous ses titres consécutivement, mais combien de fois en a-t-il remporté le tournoi ?",
+    choices: ["3", "8", "5", "7"],
+    answer: "5",
+  },
+};
+
 const data: {
   [key in ThemeNameType]: QuizCity;
 } = {
   Paris: ParisQuestions,
   London: LondonQuestions,
   Melbourne: MelbourneQuestions,
-  NewYork: ParisQuestions,
+  NewYork: NewYorkQuestions,
 };
 
 export default data;
