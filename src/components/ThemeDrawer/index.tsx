@@ -24,9 +24,11 @@ const ThemeDrawer = () => {
         <Typography align="center" variant="button" component="div">
           Sélectionnez un thème
         </Typography>
-        {Object.keys(themeMap).map((themeName: any) => (
-          <ThemeOptionButton key={themeName} name={themeName} />
-        ))}
+        <div className={classes.optionsContainer}>
+          {Object.keys(themeMap).map((themeName: any) => (
+            <ThemeOptionButton key={themeName} name={themeName} />
+          ))}
+        </div>
       </div>
     </Drawer>
   );
