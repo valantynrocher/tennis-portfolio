@@ -4,6 +4,12 @@ import yellow from "@material-ui/core/colors/yellow";
 export const useStyles = makeStyles(
   (theme: Theme) =>
     createStyles({
+      root: {
+        display: "flex",
+        flexDirection: "column",
+        overflow: "hidden",
+        alignItems: "center",
+      },
       paperRounded: {
         borderRadius: 10,
       },
@@ -52,10 +58,22 @@ export const useStyles = makeStyles(
       count: {
         color: theme.palette.common.white,
       },
-      summary: {
+      actions: {
+        margin: theme.spacing(2, "auto"),
+      },
+      button: {
+        width: 210,
+        margin: theme.spacing(0, 2),
+      },
+      summaryContainer: {
+        overflowX: "hidden",
+        overflowY: "scroll",
+      },
+      summaryInner: {
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "space-between",
+        paddingRight: theme.spacing(),
         "& > :first-child": {
           // marginRight: theme.spacing(),
         },
@@ -63,8 +81,18 @@ export const useStyles = makeStyles(
           // marginLeft: theme.spacing(),
         },
         "& > *": {
-          width: "calc(33% - 8px)",
+          width: "calc(50% - 30px)",
         },
+      },
+      expand: {
+        transform: "rotate(0deg)",
+        marginLeft: "auto",
+        transition: theme.transitions.create("transform", {
+          duration: theme.transitions.duration.shortest,
+        }),
+      },
+      expandOpen: {
+        transform: "rotate(180deg)",
       },
     }),
   {

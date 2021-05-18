@@ -1,9 +1,11 @@
-import React from "react";
-import { useContext } from "react";
+import Button from "@material-ui/core/Button";
+import Collapse from "@material-ui/core/Collapse";
 import DialogContent from "@material-ui/core/DialogContent";
-import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import clsx from "clsx";
+import React, { useContext, useState } from "react";
 import { QuizContext } from "../../context/QuizContext";
 import QuestionSummary from "./QuestionSummary";
 import { useStyles } from "./styles";
@@ -11,9 +13,14 @@ import { useStyles } from "./styles";
 const Score = () => {
   const { count, score, questions, answers } = useContext(QuizContext);
   const classes = useStyles();
+  const [expanded, setExpanded] = useState(false);
+
+  const handleShowSummary = () => {
+    setExpanded(!expanded);
+  };
 
   return (
-    <DialogContent>
+    <DialogContent className={classes.root}>
       <Paper
         elevation={3}
         className={clsx(classes.paperRounded, classes.scoreboardPaper)}
@@ -55,17 +62,52 @@ const Score = () => {
         </div>
       </Paper>
 
-      <div className={classes.summary}>
+      <div className={classes.actions}>
+        <Button
+          className={classes.button}
+          onClick={handleShowSummary}
+          variant={expanded ? "contained" : "outlined"}
+          color="primary"
+          startIcon={
+            <ExpandMoreIcon
+              className={clsx(classes.expand, {
+                [classes.expandOpen]: expanded,
+              })}
+            />
+          }
+        >
+          {expanded ? "Masquer le résumé" : "Voir le résumé"}
+        </Button>
+        {/* <Button
+          className={classes.button}
+          variant="contained"
+          color="secondary"
+        >
+          Fermer
+        </Button> */}
+      </div>
+
+      {/* <div> */}
+      <Collapse
+        classes={{
+          container: classes.summaryContainer,
+          wrapperInner: classes.summaryInner,
+        }}
+        in={expanded}
+        timeout="auto"
+        // unmountOnExit
+      >
         {Object.keys(questions).map((k: any, idx) => (
           <QuestionSummary
             key={`score-question-${k}`}
             isCorrect={questions[k].answer === answers[k]}
-            question={questions[k].text}
+            question={`${idx + 1} - ${questions[k].text}`}
             answer={questions[k].answer}
             userAnswer={answers[k]}
           />
         ))}
-      </div>
+      </Collapse>
+      {/* </div> */}
     </DialogContent>
   );
 };

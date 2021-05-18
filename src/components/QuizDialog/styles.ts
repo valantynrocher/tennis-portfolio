@@ -7,7 +7,7 @@ export const useStyles = makeStyles(
         backgroundColor: theme.palette.info.main,
         color: theme.palette.common.white,
         minWidth: 700,
-        minHeight: 500,
+        height: "100%",
       },
     }),
   {
