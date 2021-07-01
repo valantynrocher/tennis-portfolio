@@ -1,7 +1,6 @@
 import useTheme from "@material-ui/core/styles/useTheme";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import React from "react";
-import FabGroup from "../../components/FabGroup";
 import HeaderBar from "../../components/HeaderBar";
 import Sidebar from "../../components/Sidebar";
 import Routes from "../../routes/Routes";
