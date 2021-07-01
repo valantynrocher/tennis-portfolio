@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
 import React, { useContext } from "react";
@@ -8,23 +9,21 @@ import { useStyles } from "./styles";
 
 const ThemeOptionButton = (props: ThemeOptionButtonProps) => {
   const { name } = props;
-  const classes = useStyles();
   const { setThemeName } = useContext(AppContext);
   const currentTheme = getThemeByName(name);
   const { primary, secondary } = currentTheme.palette;
+  const classes = useStyles({
+    primary: primary.main,
+    secondary: secondary.main,
+  });
 
   return (
     <ButtonBase
       focusRipple
-      className={classes.root}
-      style={{
-        background: `repeating-linear-gradient(${
-          name === "London" ? 90 : 180
-        }deg,${primary.main},${primary.main} 50%,${secondary.main} 50%,${
-          secondary.main
-        })`,
-        backgroundSize: `${name === "London" ? "100px" : "100%"}`,
-      }}
+      className={clsx(classes.root, {
+        [classes.baseBackground]: name !== "London",
+        [classes.londonBackground]: name === "London",
+      })}
       onClick={() => setThemeName(name)}
     >
       <span className={classes.backdrop} />
