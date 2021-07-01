@@ -1,5 +1,10 @@
 import { Theme, makeStyles, createStyles } from "@material-ui/core/styles";
 
+export interface StylesProps {
+  primary: string;
+  secondary: string;
+}
+
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -19,6 +24,14 @@ export const useStyles = makeStyles((theme: Theme) =>
         },
       },
     },
+    baseBackground: (props: StylesProps) => ({
+      background: `repeating-linear-gradient(180deg,${props.primary},${props.primary} 50%,${props.secondary} 50%,${props.secondary})`,
+      backgroundSize: "100%",
+    }),
+    londonBackground: (props: StylesProps) => ({
+      background: `repeating-linear-gradient(90deg,${props.primary},${props.primary} 50%,${props.secondary} 50%,${props.secondary})`,
+      backgroundSize: "100px",
+    }),
     content: {
       position: "absolute",
       left: 0,
