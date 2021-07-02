@@ -1,9 +1,9 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import React from "react";
-import Home from "../views/Home";
-import Works from "../views/Works";
-import About from "../views/About";
-import NotFound from "../views/NotFound";
+import Home from "../views/pages/Home";
+import Works from "../views/pages/Works";
+import About from "../views/pages/About";
+import NotFound from "../views/pages/NotFound";
 
 const Routes = () => (
   <Switch>

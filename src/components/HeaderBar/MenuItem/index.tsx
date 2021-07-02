@@ -1,13 +1,28 @@
 import Typography from "@material-ui/core/Typography";
-import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { MenuItemProps } from "./props";
 import { useStyles } from "./styles";
 
+// const isCurrentPath = (path: string, current: string) => {
+//   const splittedPath = path.split("/")[1];
+//   console.log({ splittedPath, current, result: splittedPath === current });
+
+//   return splittedPath === current;
+// };
+
 const MenuItemComponent = (props: MenuItemProps) => {
   const { text, to } = props;
+  // const history = useHistory();
   const [hover, setHover] = useState(false);
+  // const [selected, setSelected] = useState(
+  //   isCurrentPath(history.location.pathname, to)
+  // );
+  // useEffect(() => {
+  //   setSelected(isCurrentPath(history.location.pathname, to));
+  // }, [history.location.pathname, to]);
+
   const classes = useStyles();
 
   const toggleHover = () => {
@@ -31,7 +46,7 @@ const MenuItemComponent = (props: MenuItemProps) => {
         )}
       </div>
 
-      <NavLink to={to || text} className={classes.link}>
+      <NavLink to={to} className={classes.link}>
         <Typography variant="h6" className={classes.text}>
           {text}
         </Typography>

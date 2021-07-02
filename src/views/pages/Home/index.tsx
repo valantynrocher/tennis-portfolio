@@ -1,8 +1,9 @@
 import Slide from "@material-ui/core/Slide";
 import isEqual from "lodash/isEqual";
 import React, { useContext, useRef, useState } from "react";
-import { AppContext } from "../../context/AppContext";
-import useResizeObserver from "../../hooks/useResizeObserver";
+import { AppContext } from "../../../context/AppContext";
+import useResizeObserver from "../../../hooks/useResizeObserver";
+import RouteView from "../../../Layout/RouteView";
 import { DimensionsStyleProps, useStyles } from "./styles";
 
 const Home = () => {
@@ -43,12 +44,16 @@ const Home = () => {
   useResizeObserver(rootRef, resizeFn);
 
   return (
-    <Slide direction="right" in={true} mountOnEnter unmountOnExit>
-      <div className={classes.root} ref={rootRef as any}>
-        <div className={classes.innerCourt} />
-        <div className={classes.lines} />
-      </div>
-    </Slide>
+    <RouteView>
+      <Slide direction="right" in={true} mountOnEnter unmountOnExit>
+        <div className={classes.root} ref={rootRef as any}>
+          <div>
+            <div className={classes.innerCourt} />
+            <div className={classes.lines} />
+          </div>
+        </div>
+      </Slide>
+    </RouteView>
   );
 };
 

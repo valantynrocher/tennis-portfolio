@@ -26,7 +26,6 @@ export const useStyles = makeStyles(
         },
       },
       hover: {
-        color: yellow[500],
         cursor: "pointer",
         "&::after": {
           transform: "scaleX(1)",
