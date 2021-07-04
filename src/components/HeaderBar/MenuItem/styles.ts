@@ -61,7 +61,7 @@ export const useStyles = makeStyles(
       shadow: {
         bottom: "-25%",
         height: 3,
-        background: "#000",
+        background: theme.palette.common.white,
         borderRadius: "50%",
         opacity: 0.2,
         width: "100%",
