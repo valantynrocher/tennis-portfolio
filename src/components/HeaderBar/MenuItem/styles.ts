@@ -61,7 +61,7 @@ export const useStyles = makeStyles(
       shadow: {
         bottom: "-25%",
         height: 3,
-        background: "#000",
+        background: theme.palette.common.white,
         borderRadius: "50%",
         opacity: 0.2,
         width: "100%",
@@ -69,12 +69,16 @@ export const useStyles = makeStyles(
       },
       link: {
         textDecoration: "none",
-        color: theme.palette.info.contrastText,
       },
       text: {
         fontWeight: 600,
+        fontFamily: "Amatic SC",
         textTransform: "uppercase",
         padding: theme.spacing(0, 1),
+        color: theme.palette.info.contrastText,
+      },
+      selected: {
+        color: yellow[500],
       },
       /**
        * Animations

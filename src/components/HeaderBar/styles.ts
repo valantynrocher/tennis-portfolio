@@ -30,12 +30,14 @@ export const useStyles = makeStyles(
         fontWeight: 700,
         textTransform: "uppercase",
         letterSpacing: "0.05em",
+        fontFamily: "Amatic SC",
       },
       subtitle: {
         fontSize: theme.typography.h6.fontSize,
-        color: yellow[300],
+        color: yellow[500],
         fontWeight: 700,
         letterSpacing: "0.3em",
+        fontFamily: "Amatic SC",
       },
       navigation: {
         display: "flex",

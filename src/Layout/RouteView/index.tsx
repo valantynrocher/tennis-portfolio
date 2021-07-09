@@ -1,3 +1,4 @@
+import Fade from "@material-ui/core/Fade";
 import React from "react";
 import { useEffect, useState } from "react";
 import LoadingBackdrop from "../../components/LoadingBackdrop";
@@ -24,7 +25,7 @@ const RouteView = (props: RouteViewProps) => {
   return (
     <React.Fragment>
       <LoadingBackdrop isVisible={isLoading} />
-      {children}
+      <Fade in={true}>{children}</Fade>
     </React.Fragment>
   );
 };
