@@ -1,7 +1,7 @@
 import { Theme } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core";
 
-const FONTS = ["Amatic SC", "Titillium Web", "sans-serif"];
+const FONTS = ["Titillium Web", "Amatic SC", "sans-serif"];
 
 export type ThemeNameType = "Paris" | "Melbourne" | "NewYork" | "London";
 

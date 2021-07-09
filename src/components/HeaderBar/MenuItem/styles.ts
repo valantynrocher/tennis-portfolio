@@ -69,12 +69,16 @@ export const useStyles = makeStyles(
       },
       link: {
         textDecoration: "none",
-        color: theme.palette.info.contrastText,
       },
       text: {
         fontWeight: 600,
+        fontFamily: "Amatic SC",
         textTransform: "uppercase",
         padding: theme.spacing(0, 1),
+        color: theme.palette.info.contrastText,
+      },
+      selected: {
+        color: yellow[500],
       },
       /**
        * Animations
